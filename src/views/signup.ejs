@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title><%= title %></title>
+		<link rel="stylesheet" href="/styles/signup.css" />
+		<link rel="icon" href="../public/images/logo.png" type="image/x-icon" />
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+			integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+			crossorigin="anonymous"
+			referrerpolicy="no-referrer" />
+		<script defer src="/scripts/global.js"></script>
+	</head>
+	<body>
+		<div class="logo">
+			<button class="toggle-slider" state="close">
+				<i class="fa-solid fa-bars"></i>
+			</button>
+			<span>Nimble Nexus</span>
+		</div>
+
+		<%- include('components/navbar') %>
+		<!-- update from here -->
+
+		<div class="container">
+			<h1 class="form-title">Sign up</h1>
+			<form action="register" method="post">
+				<div class="main-user-info">
+					<div class="user-input-box">
+						<label for="fullName">Full Name</label>
+						<input
+							type="text"
+							id="fullName"
+							name="fullName"
+							placeholder="eg: pooja"
+							required />
+					</div>
+					<div class="user-input-box">
+						<label for="Id no">ID_no</label>
+						<input
+							type="text"
+							id="ID_no"
+							name="ID"
+							pattern="^SNCOUG\d{6}$"
+							placeholder="eg: SNCOUG000000"
+							required />
+					</div>
+					<div class="user-input-box">
+						<label for="email">Email</label>
+						<input
+							type="email"
+							id="email"
+							name="email"
+							placeholder="eg: pooja@gmail.com"
+							required />
+					</div>
+					<div class="user-input-box">
+						<label for="phoneNumber">Phone Number</label>
+						<input
+							type="text"
+							id="phoneNumber"
+							name="phone"
+							pattern="^\+91\d{10}$"
+							placeholder="+910000000000"
+							required />
+					</div>
+					<div class="user-input-box">
+						<label for="password">Password</label>
+						<input
+							type="password"
+							id="password"
+							name="password"
+							pattern="^(?=.*\d)(?=.*[!@#$%^&*])(?=.*[a-zA-Z]).{8,}$"
+							placeholder="Enter Password"
+							required />
+					</div>
+					<div class="user-input-box">
+						<label for="confirmPassword">Confirm Password</label>
+						<input
+							type="password"
+							id="confirmPassword"
+							name="cPassword"
+							placeholder="Confirm Password"
+							required />
+					</div>
+				</div>
+				<div class="gender-details-box">
+					<span class="gender-title">Gender</span>
+					<div class="gender-category">
+						<input
+							type="radio"
+							name="gender"
+							id="male"
+							value="male"
+							required />
+						<div for="male">Male</div>
+						<input
+							type="radio"
+							name="gender"
+							id="female"
+							value="female"
+							required />
+						<div for="female">Female</div>
+						<input
+							type="radio"
+							name="gender"
+							id="other"
+							value="other"
+							required />
+						<div for="other">Other</div>
+					</div>
+				</div>
+				<div class="form-submit-btn">
+					<button type="submit" class="btn">Register</button>
+				</div>
+			</form>
+		</div>
+	</body>
+</html>

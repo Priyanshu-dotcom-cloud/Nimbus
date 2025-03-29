@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title><%= title %></title>
+		<link rel="stylesheet" href="/styles/deparment.css" />
+		<link rel="icon" href="../public/images/logo.png" type="image/x-icon" />
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+			integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+			crossorigin="anonymous"
+			referrerpolicy="no-referrer" />
+		<script defer src="/scripts/global.js"></script>
+	</head>
+	<body>
+		<div class="logo">
+			<button class="toggle-slider" state="close">
+				<i class="fa-solid fa-bars"></i>
+			</button>
+			<span>Nimble Nexus</span>
+		</div>
+
+		<%- include('components/navbar') %>
+		<!-- update from here -->
+
+		<div class="department-sub">
+			<div class="scrolling-text">
+				<p data-text="<% for(let i = 0; i < notices.length; i++) { %> 
+					<%= i + 1 %>. <%= notices[i].title %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					<% } %>">
+					<% for(let i = 0; i < notices.length; i++) { %> 
+					<%= i + 1 %>. <%= notices[i].title %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					<% } %>
+				</p>
+			</div>
+
+			<div class="CS BUTTON">
+				<a href="/cs"
+					><i class="fa-solid fa-computer"></i
+					><span>COMPUTER ENGINEERING</span></a
+				>
+			</div>
+			<div class="FE BUTTON">
+				<a href="/fe"
+					><i class="fa-solid fa-1 abcd"></i
+					><span>FIRST YEAR</span></a
+				>
+			</div>
+			<div class="IT BUTTON">
+				<a href="/it"
+					><i class="fa-solid fa-rss"></i
+					><span>INFORMATION TECHNOLOGY</span></a
+				>
+			</div>
+			<div class="MECH BUTTON">
+				<a href="/mech"
+					><i class="fa-solid fa-gear a"></i
+					><span>MECHANICAL</span></a
+				>
+			</div>
+			<div class="EXTC BUTTON">
+				<a href="/extc"
+					><i class="fa-solid fa-microchip"></i
+					><span>ELECTRONICS</span></a
+				>
+			</div>
+			<div class="AIDS BUTTON">
+				<a href="/aids"
+					><i class="fa-solid fa-robot abc"></i
+					><span>AI & DS</span></a
+				>
+			</div>
+			<div class="GEN BUTTON">
+				<a href="/notice"
+					><i class="fa-regular fa-bell ab"></i
+					><span>GENERAL</span></a
+				>
+			</div>
+			<div class="LIB] BUTTON">
+				<a href="/lib"
+					><i class="fa-solid fa-book abcd"></i
+					><span>LIBRARY</span></a
+				>
+			</div>
+			<div class="ACC BUTTON">
+				<a href="/acc"
+					><i class="fa-solid fa-file-pen"></i
+					><span>ACCOUNTS</span></a
+				>
+			</div>
+		</div>
+	</body>
+</html>

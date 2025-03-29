@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title><%= title %></title>
+
+		<link rel="stylesheet" href="/styles/notice.css" />
+		<link rel="icon" href="../public/images/logo.png" type="image/x-icon" />
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+			integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+			crossorigin="anonymous"
+			referrerpolicy="no-referrer" />
+		<script defer src="/scripts/global.js"></script>
+	</head>
+	<body>
+		<div class="logo">
+			<button class="toggle-slider" state="close">
+				<i class="fa-solid fa-bars"></i>
+			</button>
+			<span>Nimble Nexus</span>
+			<p class="sub-heading">Notices</p>
+		</div>
+
+		<%- include('components/navbar') %>
+		<!-- update from here -->
+
+		<div class="notices">
+			<div class="search-bar">
+				<div class="search">
+					<input type="text" placeholder="Search Notices" />
+					<i class="fa-solid fa-magnifying-glass"></i>
+				</div>
+			</div>
+
+			<div class="sub-notices">
+				<div class="heading-dep">Department</div>
+				<div class="heading-notice">Notice Title</div>
+				<div class="heading-date">Date</div>
+				<div class="heading-down">Query</div>
+
+				<div
+					class="notice-content"
+					style="grid-template-rows: repeat(<%= notices.length %>, 10%);" >
+					<% notices.forEach(notice =>  { %>
+					<div class="notice-data" id="<%= notice.imageId %>">
+						<span><%= notice.department %></span>
+						<p><%= notice.title %></p>
+						<span
+							><% let date = new Date(notice.creation_date); let
+							formattedDate = date.getDate() + ' - ' +
+							(date.getMonth() + 1) + ' - ' + date.getFullYear();
+							%> <%= formattedDate %></span
+						>
+						<a
+							class="add-query"
+							href="/upload_query/<%= notice._id %>/<%= notice.title %>/<%= notice.department %>">
+							<i class="fa-solid fa-plus"></i>
+						</a>
+					</div>
+					<% }); %>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

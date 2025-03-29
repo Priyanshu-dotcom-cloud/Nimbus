@@ -1,0 +1,63 @@
+@import "navbar.css";
+
+form {
+	padding-bottom: 10rem;
+	margin: auto;
+	width: 90rem;
+}
+
+.create-notice {
+	border-radius: 1rem;
+	border: 0.25rem solid var(--border-c);
+	font-size: 1.5rem;
+	padding: 1.25rem;
+	margin: auto;
+	width: 50%;
+	color: var(--change-text);
+}
+
+.label {
+	font-size: 1.5rem;
+	display: block;
+	margin-top: 1.25rem;
+	font-weight: bold;
+}
+
+input[type="text"],
+select,
+input[type="file"],
+button[type="submit"] {
+	width: 100%;
+	margin: auto;
+}
+
+input[type="text"],
+select,
+input[type="file"] {
+	border-radius: 1rem;
+	font-size: 1.5rem;
+	padding: 1.5rem;
+	margin-top: 0.5rem;
+	border: 0.05rem solid var(--border-c);
+	color: var(--change-text);
+}
+
+button[type="submit"] {
+	background-color: #4caf50;
+	color: var(--change-text);
+	padding: 1rem 1.25rem;
+	border: none;
+	border-radius: 0.25rem;
+	cursor: pointer;
+	margin-top: 1.25rem;
+	font-size: 1.5rem;
+}
+
+button[type="submit"]:hover {
+	background-color: #45a049;
+}
+
+.input-field {
+	border-radius: 1rem;
+	background-color: var(--back-c);
+}

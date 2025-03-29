@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title><%= title %></title>
+
+		<link rel="stylesheet" href="/styles/admin.css" />
+		<link rel="icon" href="../public/images/logo.png" type="image/x-icon" />
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+			integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+			crossorigin="anonymous"
+			referrerpolicy="no-referrer" />
+		<script defer src="/scripts/global.js"></script>
+	</head>
+	<body>
+		<div class="logo">
+			<button class="toggle-slider" state="close">
+				<i class="fa-solid fa-bars"></i>
+			</button>
+			<span>Nimble Nexus</span>
+			<div class="sub-heading">Admin</div>
+		</div>
+
+		<%- include('components/navbar') %>
+		<!-- update from here -->
+
+		<div class="sub-admin">
+			<div class="status-box">
+				<i class="fas fa-users"></i>
+				<div>
+					<h3><%= users.length %></h3>
+					<span>Students</span>
+				</div>
+			</div>
+
+			<div class="status-box">
+				<i class="fa-solid fa-question"></i>
+				<div>
+					<h3>10</h3>
+					<span>Queries</span>
+				</div>
+			</div>
+
+			<div class="status-box">
+				<i class="fa-sharp fa-solid fa-bell"></i>
+				<div>
+					<h3><%= notices %></h3>
+					<span>Notices</span>
+				</div>
+			</div>
+
+			<div
+				class="status-box add-notice"
+				onclick="location.href='/upload_notice'"
+				method="post">
+				<i class="fa-solid fa-plus"></i>
+				<div>
+					<h3>Add notice</h3>
+				</div>
+			</div>
+
+			<div class="board">
+				<table>
+					<thead>
+						<tr class="table-header">
+							<td>Name</td>
+							<td>Admin</td>
+							<td>Department</td>
+							<td>Year</td>
+							<td>Roll no</td>
+							<td>Phone no</td>
+						</tr>
+					</thead>
+					<tbody>
+						<% users.forEach(user => { %>
+						<tr>
+							<td class="people">
+								<i class="fa-solid fa-user"></i>
+								<div class="people-de">
+									<h5><%= user.name %></h5>
+									<p><%= user.email %></p>
+								</div>
+							</td>
+
+							<td>
+								<h5><%= user.admin %></h5>
+							</td>
+
+							<td>
+								<h5><%= user.department %></h5>
+							</td>
+
+							<td class="year">
+								<h5><%= user.academicYear %></h5>
+							</td>
+
+							<td class="roll">
+								<h5><%= user.ID %></h5>
+							</td>
+
+							<td>
+								<h5><%= user.phoneNumber %></h5>
+							</td>
+						</tr>
+						<% }); %>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</body>
+</html>

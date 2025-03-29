@@ -1,0 +1,122 @@
+@import "navbar.css";
+
+body {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	min-height: 100%;
+	width: 100%;
+	background-position: center;
+}
+
+.wrapper {
+	width: 40%;
+	background: transparent;
+	border: 0.25rem solid var(--border-c);
+	backdrop-filter: blur(9px);
+	color: var(--change-text);
+	background-color: var(--fore-c);
+	border-radius: 0.75rem;
+	padding: 3.75rem 5rem;
+}
+
+.wrapper h1 {
+	font-size: 4.5rem;
+	text-align: center;
+}
+
+.wrapper .input-box {
+	position: relative;
+	width: 100%;
+	height: 6.25rem;
+	margin: 3.75rem 0;
+}
+
+.input-box input {
+	width: 100%;
+	height: 100%;
+	background: var(--back-c);
+	border: none;
+	outline: none;
+	border: 0.125rem solid var(--border-c);
+	border-radius: 2.5rem;
+	font-size: 2rem;
+	color: var(--change-text);
+	padding: 2.5rem 5.625rem 2.5rem 2.5rem;
+}
+
+.input-box input::placeholder {
+	color: var(--sub-text);
+}
+
+.input-box i {
+	position: absolute;
+	right: 1.25rem;
+	top: 30%;
+	transform: translate(-50%);
+	font-size: 2.5rem;
+}
+
+.wrapper .remember-forgot {
+	display: flex;
+	justify-content: space-between;
+	font-size: 1.8125rem;
+	margin: -0.9375rem 0 0.9375rem;
+}
+
+.remember-forgot .check {
+	display: flex;
+	justify-content: space-between;
+	width: 35%;
+	padding-left: 1rem;
+}
+
+.remember-forgot label input {
+	accent-color: #56fd13;
+	margin-right: 0.1875rem;
+}
+
+.remember-forgot a {
+	accent-color: var(--sub-text);
+	text-decoration: none;
+}
+
+.remember-forgot a:hover {
+	color: var(--sub-text);
+	text-decoration: underline;
+}
+
+.wrapper .btn {
+	width: 100%;
+	height: 5.625rem;
+	color: var(--change-text);
+	border: var(--border-c);
+	outline: none;
+	border-radius: 2.5rem;
+	box-shadow: 0 0 0.625rem rgba(0, 0, 0, 0.1);
+	cursor: pointer;
+	font-size: 2rem;
+	font-weight: 600;
+	background-color: var(--sub-text);
+}
+
+.wrapper .register-link {
+	font-size: 1.8125rem;
+	text-align: center;
+	margin: 2.5rem 0 1.875rem;
+}
+
+.register-link p a {
+	color: var(--change-text);
+	text-decoration: none;
+	font-weight: 600;
+}
+
+.register-link p a:hover {
+	text-decoration: underline;
+}
+
+.remember-forgot input[type="checkbox"] {
+	transform: scale(2);
+	padding-right: 0.7rem;
+}

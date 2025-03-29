@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title><%= title %></title>
+
+		<link rel="stylesheet" href="/styles/dashboard.css" />
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+			integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+			crossorigin="anonymous"
+			referrerpolicy="no-referrer" />
+		<script defer src="/scripts/global.js"></script>
+		<script src="/routes/dashboard.js"></script>
+		<script src="/routes/update_user.js"></script>
+	</head>
+	<body>
+		<div class="logo">
+			<button class="toggle-slider" state="close">
+				<i class="fa-solid fa-bars"></i>
+			</button>
+			<span>Nimble Nexus</span>
+			<p class="sub-heading">Dashboard</p>
+		</div>
+
+		<%- include('components/navbar') %>
+		<!-- update from here -->
+
+		<div class="container">
+			<div class="sub-container">
+				<div class="f-container">
+					<form class="info-table" method="POST" action="/update_user">
+						<p>Personal information</p>
+						<div class="row">
+							<label for="name" class="txt">Name:</label>
+							<input type="name" id="name" placeholder="<%= currentuser.name %>" />
+						</div>
+
+						<div class="row">
+							<label for="Email" class="txt">Email: </label>
+							<input type="email" placeholder="<%= currentuser.email %>" />
+						</div>
+
+						<div class="row">
+							<label for="Phone" class="txt">Phone: </label>
+							<input type="Phone" placeholder="<%= currentuser.phoneNumber %>" />
+						</div>
+
+						<div class="row">
+							<label for="DOB" class="txt">Date of birth: </label>
+							<input type="DOB" placeholder="<%= currentuser.dob %>" />
+						</div>
+
+						<div class="row">
+							<label for="Age" class="txt">Age: </label>
+							<input type="Age" placeholder="<%= currentuser.age %>" />
+						</div>
+
+						<button type="submit" class="save">Save</button>
+					</form>
+				</div>
+
+				<div class="s-container">
+					<form class="info-table">
+						<p>General information</p>
+						<div class="row">
+							<label for="Department" class="txt"
+								>Department:
+							</label>
+							<input type="department" placeholder="<%= currentuser.department %>" />
+						</div>
+
+						<div class="row">
+							<label for="Role" class="txt">Role: </label>
+							<input type="Role" placeholder="<%= currentuser.role %>" />
+						</div>
+
+						<div class="row">
+							<label for="Year" class="txt">Year: </label>
+							<input type="Year" placeholder="<%= currentuser.academicYear %>" />
+						</div>
+
+						<div class="row">
+							<label for="Caste" class="txt">Caste:</label>
+							<input type="Caste" placeholder="<%= currentuser.casteCategory %>" />
+						</div>
+
+						<div class="row">
+							<label for="GR_NO" class="txt">GR_NO:</label>
+							<input placeholder="<%= currentuser.ID %>" />
+						</div>
+
+						<button class="forgot-pass">Forgot Password</button>
+					</form>
+				</div>
+			</div>
+
+			<div class="outer">
+				<p class="heading-outer">My Queries</p>
+				<div class="sub-queries">
+					<% function renderReply(reply) { %>
+					<div
+						class="query-container"
+						dataset="comment-<%= reply.parentReplyId %>"
+						id="reply-<%= reply._id %>">
+						<div class="query-card">
+							<div class="query-header">
+								<img
+									src="/images/logo.png"
+									class="profile-pic" />
+								<span class="profile-name"
+									><%= reply.userName %></span
+								>
+							</div>
+
+							<p class="query-body"><%= reply.desc %></p>
+							<div class="query-footer">
+								<div
+									class="helpful"
+									onclick="toggleLike('<%= reply._id %>')">
+									<%= reply.likes %> Found Helpful
+								</div>
+								<div class="reply">
+									<i class="fa-solid fa-reply"></i>
+									<a href="/upload_reply/<%= reply._id %>"
+										>Reply</a
+									>
+								</div>
+								<div class="replies">
+									<%= reply.replies.length %> Replies
+								</div>
+							</div>
+						</div>
+						<% if(reply.replies.length > 0) { %> <%
+						reply.replies.forEach(renderReply); %> <% } %>
+					</div>
+					<% } %> <% queries.forEach(query => { %> <%
+					if(query.userId.toString() === userId.toString()) { %>
+					<div
+						class="query-container opened parent"
+						id="comment-<%= query._id %>">
+						<div class="query-card">
+							<div class="query-header">
+								<img
+									src="/images/logo.png"
+									class="profile-pic" />
+								<span class="profile-name"
+									><%= query.userName %></span
+								>
+								<span class="notice-name"
+									>Notice Name: <%= query.noticeName %></span
+								>
+								<span class="department"
+									>Dep: <%= query.noticeDep %></span
+								>
+							</div>
+
+							<h4 class="title"><%= query.title %></h4>
+							<p class="query-body"><%= query.desc %></p>
+							<div class="query-footer">
+								<div
+									class="helpful"
+									onclick="toggleLike('<%= query._id %>')">
+									<%= query.likes %> Found Helpful
+								</div>
+								<div class="reply">
+									<i class="fa-solid fa-reply"></i>
+									<a href="/upload_reply/<%= query._id %>"
+										>Reply</a
+									>
+								</div>
+								<div class="replies">
+									<%= query.replies.length %> Replies
+								</div>
+							</div>
+						</div>
+						<% if(query.replies.length > 0) { %> <%
+						query.replies.forEach(renderReply); %> <% } %>
+					</div>
+					<% } %> <% }); %>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
+

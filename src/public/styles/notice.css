@@ -1,0 +1,71 @@
+@import "navbar.css";
+
+.notices {
+	color: var(--change-text);
+	width: 95%;
+	margin: 2% auto;
+	border-radius: 10px;
+}
+
+.sub-notices {
+	overflow-y: scroll;
+	border: 3px solid var(--border-c);
+	color: var(--change-text);
+	width: 100%;
+	margin: 2% auto;
+	border-radius: 10px;
+	height: 87%;
+	background-color: var(--fore-c);
+	display: grid;
+	grid-template-columns: 18% 50% 18% 12.5%;
+	grid-template-rows: 8%;
+	gap: 0.4rem;
+	padding-left: 0.8rem;
+}
+
+.heading-dep,
+.heading-down,
+.heading-notice,
+.heading-date {
+	padding-top: 0.6rem;
+	display: flex;
+	width: 100%;
+	font-size: 2rem;
+	font-weight: 600;
+	align-content: center;
+	justify-content: center;
+	border-bottom: 2px solid var(--change-text);
+}
+
+.notice-content {
+	grid-column: span 4;
+	display: grid;
+	width: 100%;
+}
+
+.notice-data {
+	display: grid;
+	grid-template-columns: 18% 50% 18% 12.5%;
+	gap: 0.4rem;
+	align-items: center;
+	justify-items: center;
+}
+
+.notice-data i {
+	grid-column: 4;
+}
+
+.notice-data img {
+	width: 3rem;
+	height: 3rem;
+}
+
+.notice-data {
+	font-size: 1.8rem;
+	font-weight: 600;
+}
+
+.add-query i {
+	font-size: 2.5rem;
+	color: var(--change-text);
+}
